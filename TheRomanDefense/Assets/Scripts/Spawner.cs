@@ -7,15 +7,16 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] enemyPrefabs;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            int randPoint = Random.Range(0, spawnPoints.Length);
-            int randEnemy = Random.Range(0, enemyPrefabs.Length);
+        InvokeRepeating("Spawn", 2.0f, 0.5f);
+    }
 
-            Instantiate(enemyPrefabs[randEnemy], spawnPoints[randPoint].position, transform.rotation);
-        }
+    private void Spawn()
+    {
+        int randPoint = Random.Range(0, spawnPoints.Length);
+        int randEnemy = Random.Range(0, enemyPrefabs.Length);
+
+        Instantiate(enemyPrefabs[randEnemy], spawnPoints[randPoint].position, transform.rotation);
     }
 }

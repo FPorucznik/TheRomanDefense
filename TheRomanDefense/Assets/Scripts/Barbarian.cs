@@ -9,6 +9,7 @@ public class Barbarian : MonoBehaviour
     public float moveSpeed;
     public bool attack;
     public Animator anim;
+    Base baseObj;
 
     // Start is called before the first frame update
     private void Start()
@@ -17,6 +18,7 @@ public class Barbarian : MonoBehaviour
         moveSpeed = 1f;
         attack = false;
         anim = GetComponent<Animator>();
+        baseObj = FindObjectOfType<Base>();
     }
 
     private void FixedUpdate()
@@ -26,12 +28,17 @@ public class Barbarian : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "base")
+        if (collision.collider.CompareTag("base"))
         {
-            Debug.Log("base attack");
             attack = true;
             anim.SetBool("attack", attack);
+            InvokeRepeating("DamageBase", 0f, 1f);
         }   
+    }
+
+    private void DamageBase()
+    {
+        baseObj.health -= 1f;
     }
 
 }
