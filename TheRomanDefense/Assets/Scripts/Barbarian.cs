@@ -44,6 +44,7 @@ public class Barbarian : MonoBehaviour
 
             if(health == 0)
             {
+                baseObj.gold += 10;
                 Destroy(gameObject);
             }
         }
