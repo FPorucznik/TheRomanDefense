@@ -6,6 +6,7 @@ TagManager:
   tags:
   - base
   - enemy
+  - arrow
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -22,5 +23,6 @@ public class HealthBar : MonoBehaviour
     {
         currentHealth = baseObj.health;
         healthBar.fillAmount = currentHealth / maxHealth;
+        //SceneManager.LoadScene(0);
     }
 }

@@ -10,6 +10,7 @@ public class Barbarian : MonoBehaviour
     public bool attack;
     public Animator anim;
     Base baseObj;
+    public int health;
 
     // Start is called before the first frame update
     private void Start()
@@ -19,6 +20,7 @@ public class Barbarian : MonoBehaviour
         attack = false;
         anim = GetComponent<Animator>();
         baseObj = FindObjectOfType<Base>();
+        health = 3;
     }
 
     private void FixedUpdate()
@@ -33,7 +35,18 @@ public class Barbarian : MonoBehaviour
             attack = true;
             anim.SetBool("attack", attack);
             InvokeRepeating("DamageBase", 0f, 1f);
-        }   
+        }
+
+        if (collision.collider.CompareTag("arrow"))
+        {
+            //Debug.Log("i got hit");
+            health--;
+
+            if(health == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void DamageBase()
