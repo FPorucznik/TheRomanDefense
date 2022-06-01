@@ -5,11 +5,13 @@ using UnityEngine;
 public class Upgrades : MonoBehaviour
 {
     private Base baseObj;
+    private Shooting shootingObj;
 
     // Start is called before the first frame update
     void Start()
     {
         baseObj = FindObjectOfType<Base>();
+        shootingObj = FindObjectOfType<Shooting>();
     }
 
     public void FixWall()
@@ -18,6 +20,19 @@ public class Upgrades : MonoBehaviour
         {
             baseObj.health = 100;
             baseObj.gold -= 10;
+        }
+    }
+
+    public void IncreaseSpeed()
+    {
+        if(baseObj.gold >= 10)
+        {
+            bool upgrade = shootingObj.UpdateSpeed(0.02f);
+
+            if (upgrade)
+            {
+                baseObj.gold -= 10;
+            }
         }
     }
 
