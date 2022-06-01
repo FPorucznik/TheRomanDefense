@@ -12,6 +12,11 @@ public class Shooting : MonoBehaviour
 
     private float speed = 0.3f;
 
+    private int arrowCount = 1;
+    private List<GameObject> arrows = new List<GameObject>();
+    private List<int> rotations = new List<int>();
+    private Vector3 rot;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,14 +25,47 @@ public class Shooting : MonoBehaviour
             StartCoroutine(Fire());
             //Shoot();
         }
+        
+        if(arrowCount == 1)
+        {
+            // Vector3 rot = firePoint.rotation.eulerAngles;
+            rot = firePoint.rotation.eulerAngles;
+            rot = new Vector3(rot.x, rot.y, rot.z);
+            firePoint.rotation = Quaternion.Euler(rot);
+
+            rotations.Clear();
+            rotations.Add(-80);
+            //rotations.Add(-250);
+        }
+        else if(arrowCount == 2)
+        {
+            rotations.Clear();
+            rotations.Add(-80);
+            rotations.Add(-100);
+        }
     }
 
     void Shoot()
     {
-        GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
-        arrow.transform.Rotate(0, 0, 90);
-        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * arrowForce, ForceMode2D.Impulse);
+        //rot = new Vector3(rot.x, rot.y, rot.z-10);
+        //firePoint.rotation = Quaternion.Euler(rot);
+        for (int i=0; i<arrowCount; i++)
+        {
+            GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+            arrows.Add(arrow);
+        }
+
+        for(int i=0; i<arrowCount; i++)
+        {
+            arrows[i].transform.Rotate(0, 0, 90);
+            Rigidbody2D rb = arrows[i].GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * arrowForce, ForceMode2D.Impulse);
+        }
+        arrows.Clear();
+        //GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+        //arrow.transform.Rotate(0, 0, 90);
+        //Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
+        //rb.AddForce(firePoint.up * arrowForce, ForceMode2D.Impulse);
     }
 
     IEnumerator Fire()
@@ -48,6 +86,19 @@ public class Shooting : MonoBehaviour
         else
         {
             Debug.Log("max speed");
+            return false;
+        }
+    }
+
+    public bool UpdateArrowCount()
+    {
+        if(arrowCount < 4)
+        {
+            arrowCount++;
+            return true;
+        }
+        else
+        {
             return false;
         }
     }

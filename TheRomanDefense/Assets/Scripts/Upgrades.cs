@@ -36,9 +36,16 @@ public class Upgrades : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddArrow()
     {
-        
+        if (baseObj.gold >= 10)
+        {
+            bool upgrade = shootingObj.UpdateArrowCount();
+
+            if (upgrade)
+            {
+                baseObj.gold -= 10;
+            }
+        }
     }
 }
