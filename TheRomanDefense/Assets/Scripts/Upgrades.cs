@@ -18,7 +18,7 @@ public class Upgrades : MonoBehaviour
     {
         if(baseObj.gold >= 10)
         {
-            baseObj.health = 100;
+            baseObj.health = 100f;
             baseObj.gold -= 10;
         }
     }

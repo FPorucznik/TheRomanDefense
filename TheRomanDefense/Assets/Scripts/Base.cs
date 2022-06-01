@@ -20,9 +20,10 @@ public class Base : MonoBehaviour
     void Update()
     {
         goldText.text = gold.ToString();
-        if(health == 0)
+        if(health <= 0)
         {
             SceneManager.LoadScene(0);
         }
+        Debug.Log(health);
     }
 }
