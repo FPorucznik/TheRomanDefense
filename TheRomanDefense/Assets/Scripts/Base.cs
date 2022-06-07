@@ -24,6 +24,5 @@ public class Base : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        Debug.Log(health);
     }
 }
