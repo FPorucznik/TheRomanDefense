@@ -8,6 +8,9 @@ TagManager:
   - enemy
   - arrow
   - ally
+  - phalanx
+  - menu
+  - border
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - base
   - arrows
   - enemy
-  - 
+  - phalanx
   - 
   - 
   - 

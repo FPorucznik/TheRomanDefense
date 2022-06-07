@@ -8,6 +8,9 @@ public class Upgrades : MonoBehaviour
     private Shooting shootingObj;
     private AllySpawner spawner;
     private ShooterHelperSpawner spawnerShooters;
+    private Barrage spawnerBarrage;
+    private PhalanxSpawner spawnerPhalanx;
+    //public Transform[] barragePoints;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,8 @@ public class Upgrades : MonoBehaviour
         shootingObj = FindObjectOfType<Shooting>();
         spawner = FindObjectOfType<AllySpawner>();
         spawnerShooters = FindObjectOfType<ShooterHelperSpawner>();
+        spawnerBarrage = FindObjectOfType<Barrage>();
+        spawnerPhalanx = FindObjectOfType<PhalanxSpawner>();
     }
 
     public void FixWall()
@@ -76,6 +81,24 @@ public class Upgrades : MonoBehaviour
             {
                 baseObj.gold -= 10;
             }
+        }
+    }
+
+    public void SpawnBarrage()
+    {
+        if (baseObj.gold >= 10)
+        {
+            baseObj.gold -= 10;
+            spawnerBarrage.CallAttack();
+        }
+    }
+
+    public void SpawnPhalanx()
+    {
+        if (baseObj.gold >= 10)
+        {
+            baseObj.gold -= 10;
+            spawnerPhalanx.Spawn();
         }
     }
 }

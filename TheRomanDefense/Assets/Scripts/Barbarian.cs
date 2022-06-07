@@ -43,6 +43,12 @@ public class Barbarian : MonoBehaviour
             InvokeRepeating("DamageAlly", 0f, 1f);
         }
 
+        if (collision.collider.CompareTag("phalanx"))
+        {
+            baseObj.gold += 10;
+            Destroy(gameObject);
+        }
+
         if (collision.collider.CompareTag("arrow"))
         {
             health -= 1f;
@@ -69,6 +75,7 @@ public class Barbarian : MonoBehaviour
     {
         if(health <= 0)
         {
+            baseObj.gold += 10;
             Destroy(gameObject);
         }
     }
