@@ -7,6 +7,7 @@ public class Upgrades : MonoBehaviour
     private Base baseObj;
     private Shooting shootingObj;
     private AllySpawner spawner;
+    private ShooterHelperSpawner spawnerShooters;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class Upgrades : MonoBehaviour
         baseObj = FindObjectOfType<Base>();
         shootingObj = FindObjectOfType<Shooting>();
         spawner = FindObjectOfType<AllySpawner>();
+        spawnerShooters = FindObjectOfType<ShooterHelperSpawner>();
     }
 
     public void FixWall()
@@ -56,6 +58,19 @@ public class Upgrades : MonoBehaviour
         if (baseObj.gold >= 10)
         {
             bool upgrade = spawner.UpdateAllies();
+
+            if (upgrade)
+            {
+                baseObj.gold -= 10;
+            }
+        }
+    }
+
+    public void SpawnShooter()
+    {
+        if (baseObj.gold >= 10)
+        {
+            bool upgrade = spawnerShooters.UpdateAllies();
 
             if (upgrade)
             {

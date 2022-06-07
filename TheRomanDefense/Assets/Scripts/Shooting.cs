@@ -90,7 +90,6 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            Debug.Log("max speed");
             return false;
         }
     }
