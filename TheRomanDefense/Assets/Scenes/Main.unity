@@ -2470,6 +2470,8 @@ MonoBehaviour:
   - {fileID: 1143311730}
   enemyPrefabs:
   - {fileID: 6286793970743286527, guid: 70a731c43d084e5419a5a49282520797, type: 3}
+  strongEnemy: {fileID: 3008808383734043915, guid: 93bdfc1e8649e9a429d7c0fd0fb882ea,
+    type: 3}
   wave: 0
   waveText: {fileID: 344018376}
 --- !u!4 &1613195453
