@@ -51,15 +51,32 @@ public class AllyHeavySoldier : MonoBehaviour
                 anim.SetBool("stand", stand);
             }
         }
+
+        if (collision.collider.CompareTag("warEnemy"))
+        {
+            attack = true;
+            anim.SetBool("attack", attack);
+            InvokeRepeating("DamageEnemy", 0f, 1f);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("enemy"))
+        if (collision.collider.CompareTag("warEnemy"))
         {
             attack = false;
             anim.SetBool("attack", attack);
             CancelInvoke();
+        }
+
+        if (collision.collider.CompareTag("warAlly"))
+        {
+            if (!attack)
+            {
+                stand = false;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                anim.SetBool("stand", stand);
+            }
         }
     }
 
@@ -67,7 +84,7 @@ public class AllyHeavySoldier : MonoBehaviour
     {
         if (health <= 0)
         {
-            baseObj.gold += 10;
+            baseObj.gold += 20;
             Destroy(gameObject);
         }
     }
@@ -75,5 +92,10 @@ public class AllyHeavySoldier : MonoBehaviour
     private void DamageBase()
     {
         baseObj.health -= 1f;
+    }
+
+    private void DamageEnemy()
+    {
+        health -= 0.2f;
     }
 }

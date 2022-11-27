@@ -320,6 +320,8 @@ MonoBehaviour:
   allyPrefabs:
   - {fileID: 4547054314806254340, guid: 186159d684a51dc43ab9dc27184b98f1, type: 3}
   - {fileID: 8642406866398706001, guid: 19ee2d688a2244a4d86bb95ccb7a53d2, type: 3}
+  spawnLightBtn: {fileID: 446448287}
+  spawnHeavyBtn: {fileID: 1580012534}
 --- !u!4 &186117287
 Transform:
   m_ObjectHideFlags: 0

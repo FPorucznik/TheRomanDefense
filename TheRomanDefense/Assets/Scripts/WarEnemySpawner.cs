@@ -14,7 +14,7 @@ public class WarEnemySpawner : MonoBehaviour
     void Start()
     {
         enemyType = Random.Range(0, 100);
-        repeatRate = 3f;
+        repeatRate = 6f;
         baseObj = FindObjectOfType<WarEnemyBase>();
         StartCoroutine(Spawn());
     }

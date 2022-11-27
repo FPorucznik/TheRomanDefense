@@ -21,7 +21,7 @@ public class WarBarbarian : MonoBehaviour
         attack = false;
         anim = GetComponent<Animator>();
         baseObj = FindObjectOfType<WarAllyBase>();
-        health = 3f;
+        health = 1.6f;
         stand = false;
     }
 
@@ -51,16 +51,31 @@ public class WarBarbarian : MonoBehaviour
                 anim.SetBool("stand", stand);
             }
         }
+        if (collision.collider.CompareTag("warAlly"))
+        {
+            attack = true;
+            anim.SetBool("attack", attack);
+            InvokeRepeating("DamageEnemy", 0f, 1f);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("enemy"))
+        if (collision.collider.CompareTag("warAlly"))
         {
-            Debug.Log("stopping attack");
             attack = false;
             anim.SetBool("attack", attack);
             CancelInvoke();
+        }
+
+        if (collision.collider.CompareTag("warEnemy"))
+        {
+            if (!attack)
+            {
+                stand = false;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                anim.SetBool("stand", stand);
+            }
         }
     }
 
@@ -76,5 +91,10 @@ public class WarBarbarian : MonoBehaviour
     private void DamageBase()
     {
         baseObj.health -= 1f;
+    }
+
+    private void DamageEnemy()
+    {
+        health -= 0.2f;
     }
 }
