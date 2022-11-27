@@ -33,10 +33,6 @@ public class WarEnemySpawner : MonoBehaviour
             baseObj.gold -= 10;
             enemyType = Random.Range(0, 100);
         }
-        if (baseObj.gold <= 0)
-        {
-            CancelInvoke();
-        }
     }
 
     public void SpawnHeavySoldier()
@@ -46,10 +42,6 @@ public class WarEnemySpawner : MonoBehaviour
             Instantiate(enemyPrefabs[1], spawnPoint.position, transform.rotation);
             baseObj.gold -= 20;
             enemyType = Random.Range(0, 100);
-        }
-        if (baseObj.gold <= 0)
-        {
-            CancelInvoke();
         }
     }
 
