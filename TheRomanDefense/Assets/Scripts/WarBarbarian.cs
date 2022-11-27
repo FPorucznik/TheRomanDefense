@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllyLightSoldier : MonoBehaviour
+public class WarBarbarian : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float dirX;
     public float moveSpeed;
     public bool attack;
     public Animator anim;
-    WarEnemyBase baseObj;
+    WarAllyBase baseObj;
     public float health;
     private bool stand;
 
     // Start is called before the first frame update
     private void Start()
     {
-        dirX = 1f;
+        dirX = -1f;
         moveSpeed = 1f;
         attack = false;
         anim = GetComponent<Animator>();
-        baseObj = FindObjectOfType<WarEnemyBase>();
+        baseObj = FindObjectOfType<WarAllyBase>();
         health = 3f;
         stand = false;
     }
@@ -35,14 +35,14 @@ public class AllyLightSoldier : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("enemy"))
+        if (collision.collider.CompareTag("base"))
         {
             attack = true;
             anim.SetBool("attack", attack);
             InvokeRepeating("DamageBase", 0f, 1f);
         }
 
-        if (collision.collider.CompareTag("warAlly"))
+        if (collision.collider.CompareTag("warEnemy"))
         {
             if (!attack)
             {
@@ -57,6 +57,7 @@ public class AllyLightSoldier : MonoBehaviour
     {
         if (collision.collider.CompareTag("enemy"))
         {
+            Debug.Log("stopping attack");
             attack = false;
             anim.SetBool("attack", attack);
             CancelInvoke();

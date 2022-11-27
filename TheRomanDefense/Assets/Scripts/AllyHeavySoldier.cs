@@ -11,6 +11,7 @@ public class AllyHeavySoldier : MonoBehaviour
     public Animator anim;
     WarEnemyBase baseObj;
     public float health;
+    private bool stand;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,11 +22,15 @@ public class AllyHeavySoldier : MonoBehaviour
         anim = GetComponent<Animator>();
         baseObj = FindObjectOfType<WarEnemyBase>();
         health = 3f;
+        stand = false;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        if (!stand)
+        {
+            rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,6 +40,16 @@ public class AllyHeavySoldier : MonoBehaviour
             attack = true;
             anim.SetBool("attack", attack);
             InvokeRepeating("DamageBase", 0f, 1f);
+        }
+
+        if (collision.collider.CompareTag("warAlly"))
+        {
+            if (!attack)
+            {
+                stand = true;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                anim.SetBool("stand", stand);
+            }
         }
     }
 

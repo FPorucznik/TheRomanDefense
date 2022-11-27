@@ -11,6 +11,8 @@ TagManager:
   - phalanx
   - menu
   - border
+  - warAlly
+  - warEnemy
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - arrows
   - enemy
   - phalanx
-  - 
-  - 
+  - warAlly
+  - warEnemy
   - 
   - 
   - 

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2611502983396372452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126375945587626194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5337e3f426d814993e9dfb0ad28b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 5126375945587626287}
+  dirX: 0
+  moveSpeed: 0
+  attack: 0
+  anim: {fileID: 0}
+  health: 0
+--- !u!1001 &1160703906962147885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.0064607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.156702
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286524, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286526, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 195696098f8cdf444acf062af0cb52cc, type: 2}
+    - target: {fileID: 6286793970743286527, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_Name
+      value: war_barbarian
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286527, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6286793970743286527, guid: 70a731c43d084e5419a5a49282520797,
+        type: 3}
+      propertyPath: m_TagString
+      value: warEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6286793970743286529, guid: 70a731c43d084e5419a5a49282520797, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 70a731c43d084e5419a5a49282520797, type: 3}
+--- !u!1 &5126375945587626194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6286793970743286527, guid: 70a731c43d084e5419a5a49282520797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1160703906962147885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &5126375945587626287 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6286793970743286530, guid: 70a731c43d084e5419a5a49282520797,
+    type: 3}
+  m_PrefabInstance: {fileID: 1160703906962147885}
+  m_PrefabAsset: {fileID: 0}
