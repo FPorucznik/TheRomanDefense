@@ -31,4 +31,22 @@ public class WarUpgrades : MonoBehaviour
             baseObj.gold -= 20;
         }
     }
+
+    public void fixBase()
+    {
+        if (baseObj.gold >= 30)
+        {
+            baseObj.health = 100f;
+            baseObj.gold -= 30;
+        }
+    }
+
+    public void spawnFortification()
+    {
+        if (baseObj.gold >= 80)
+        {
+            spawner.SpawnFortification();
+            baseObj.gold -= 80;
+        }
+    }
 }

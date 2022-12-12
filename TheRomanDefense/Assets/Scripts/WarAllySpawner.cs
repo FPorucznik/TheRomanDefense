@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class WarAllySpawner : MonoBehaviour
 {
-    public Transform spawnPoint;
+    public Transform[] spawnPoints;
     public GameObject[] allyPrefabs;
     public Button spawnLightBtn;
     public Button spawnHeavyBtn;
+    public Button spawnDefenseBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -37,16 +38,25 @@ public class WarAllySpawner : MonoBehaviour
     }
     private void SpawnLightSoldierInstance()
     {
-        Instantiate(allyPrefabs[0], spawnPoint.position, transform.rotation);
+        Instantiate(allyPrefabs[0], spawnPoints[0].position, transform.rotation);
         spawnLightBtn.interactable = true;
         spawnHeavyBtn.interactable = true;
     }
 
     private void SpawnHeavySoldierInstance()
     {
-        Instantiate(allyPrefabs[1], spawnPoint.position, transform.rotation);
+        Instantiate(allyPrefabs[1], spawnPoints[0].position, transform.rotation);
         spawnHeavyBtn.interactable = true;
         spawnLightBtn.interactable = true;
+    }
+
+    public void SpawnFortification()
+    {
+        spawnDefenseBtn.interactable = false;
+        GameObject obj = Instantiate(allyPrefabs[2], spawnPoints[1].position, transform.rotation);
+        obj.layer = 14;
+        Fortification fortification = obj.GetComponent<Fortification>();
+        fortification.tag = "allyFortification";
     }
 
 }

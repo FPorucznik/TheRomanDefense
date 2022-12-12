@@ -57,6 +57,15 @@ public class WarBarbarian : MonoBehaviour
             anim.SetBool("attack", attack);
             InvokeRepeating("DamageEnemy", 0f, 1f);
         }
+
+        if (collision.collider.CompareTag("allyFortification"))
+        {
+            attack = true;
+            anim.SetBool("attack", attack);
+            GameObject obj = collision.collider.gameObject;
+            Fortification fortification = obj.GetComponent<Fortification>();
+            fortification.Collide();
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -76,6 +85,13 @@ public class WarBarbarian : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 anim.SetBool("stand", stand);
             }
+        }
+
+        if (collision.collider.CompareTag("allyFortification"))
+        {
+            attack = false;
+            anim.SetBool("attack", attack);
+            CancelInvoke();
         }
     }
 
