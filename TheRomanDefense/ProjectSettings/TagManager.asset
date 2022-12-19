@@ -14,6 +14,7 @@ TagManager:
   - warAlly
   - warEnemy
   - allyFortification
+  - enemyFortification
   layers:
   - Default
   - TransparentFX

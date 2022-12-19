@@ -8,12 +8,14 @@ public class Fortification : MonoBehaviour
     public Rigidbody2D rb;
     public float health;
     private WarAllySpawner spawner;
+    private WarEnemySpawner enemySpawner;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 6f;
+        health = 4f;
         spawner = FindObjectOfType<WarAllySpawner>();
+        enemySpawner = FindObjectOfType<WarEnemySpawner>();
     }
 
     // Update is called once per frame
@@ -21,8 +23,17 @@ public class Fortification : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
-            spawner.spawnDefenseBtn.interactable = true;
+            Fortification fortification = gameObject.GetComponent<Fortification>();
+            if(fortification.tag == "allyFortification")
+            {
+                Destroy(gameObject);
+                spawner.spawnDefenseBtn.interactable = true;
+            }
+            else
+            {
+                Destroy(gameObject);
+                enemySpawner.isFortification = false;
+            }
         }
     }
 

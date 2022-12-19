@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: -5876927638323470148}
   health: 0
-  isAlly: 0
 --- !u!50 &-5876927638323470148
 Rigidbody2D:
   serializedVersion: 4
