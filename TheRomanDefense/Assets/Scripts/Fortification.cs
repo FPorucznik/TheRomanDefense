@@ -21,6 +21,7 @@ public class Fortification : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //checking if fortification still has health, if not then destroy correct object depending on tag and allow purchase and enable button
         if (health <= 0)
         {
             Fortification fortification = gameObject.GetComponent<Fortification>();
@@ -37,11 +38,13 @@ public class Fortification : MonoBehaviour
         }
     }
 
+    //runs when object collides with unit and invokes method to take damage
     public void Collide()
     {
         InvokeRepeating("TakeDamage", 0f, 1f);
     }
 
+    //method that reduces objects health when attacked
     private void TakeDamage()
     {
         health -= 0.2f;

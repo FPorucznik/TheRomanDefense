@@ -20,6 +20,7 @@ public class WarEnemyHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //fill healthbar depending on current health value
         currentHealth = baseObj.health;
         healthBar.fillAmount = currentHealth / maxHealth;
     }

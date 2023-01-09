@@ -13,6 +13,7 @@ public class WarAllyHealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get objects from scene
         healthBar = GetComponent<Image>();
         baseObj = FindObjectOfType<WarAllyBase>();
     }
@@ -20,6 +21,7 @@ public class WarAllyHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //fill health bar depending on base current health
         currentHealth = baseObj.health;
         healthBar.fillAmount = currentHealth / maxHealth;
     }

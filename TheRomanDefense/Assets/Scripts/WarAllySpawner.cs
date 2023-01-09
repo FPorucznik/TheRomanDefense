@@ -23,6 +23,7 @@ public class WarAllySpawner : MonoBehaviour
 
     }
 
+    //below spawn methods first disable spawn buttons so there is a cooldown between troop spawning then invokes method that instantiates unit objects
     public void SpawnLightSoldier()
     {
         spawnLightBtn.interactable = false;
@@ -49,7 +50,8 @@ public class WarAllySpawner : MonoBehaviour
         spawnHeavyBtn.interactable = true;
         spawnLightBtn.interactable = true;
     }
-
+    
+    //method for spawning fortification object and applying it correct layer and tag for collision detection
     public void SpawnFortification()
     {
         spawnDefenseBtn.interactable = false;

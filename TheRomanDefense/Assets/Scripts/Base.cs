@@ -22,7 +22,7 @@ public class Base : MonoBehaviour
         goldText.text = gold.ToString();
         if(health <= 0)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
         }
     }
 }

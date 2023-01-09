@@ -27,6 +27,7 @@ public class AllyHeavySoldier : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //apply movement velocity to soldier object
         if (!stand)
         {
             rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
@@ -35,6 +36,7 @@ public class AllyHeavySoldier : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //detect collisions with objects with specific tags and handle attacking/movement
         if (collision.collider.CompareTag("enemy"))
         {
             attack = true;
@@ -71,6 +73,7 @@ public class AllyHeavySoldier : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //detect moment when object exits a collision with objects with specific tags and handle attacking/movement
         if (collision.collider.CompareTag("warEnemy"))
         {
             attack = false;
@@ -96,8 +99,10 @@ public class AllyHeavySoldier : MonoBehaviour
         }
     }
 
+    //runs every frame
     private void Update()
     {
+        //checking objects health
         if (health <= 0)
         {
             baseObj.gold += 20;
@@ -105,11 +110,13 @@ public class AllyHeavySoldier : MonoBehaviour
         }
     }
 
+    //runs when a collision with target base is detected
     private void DamageBase()
     {
         baseObj.health -= 1f;
     }
 
+    //runs when a collision with opposing unit is detected
     private void DamageEnemy()
     {
         health -= 0.2f;

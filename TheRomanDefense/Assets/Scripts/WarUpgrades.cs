@@ -25,10 +25,10 @@ public class WarUpgrades : MonoBehaviour
 
     public void SpawnHeavySoldier()
     {
-        if (baseObj.gold >= 20)
+        if (baseObj.gold >= 50)
         {
             spawner.SpawnHeavySoldier();
-            baseObj.gold -= 20;
+            baseObj.gold -= 50;
         }
     }
 

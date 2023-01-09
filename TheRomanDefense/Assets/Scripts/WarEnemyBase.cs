@@ -12,7 +12,7 @@ public class WarEnemyBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        InvokeRepeating("PassiveIncome", 0f, 10f);
     }
 
     // Update is called once per frame
@@ -22,5 +22,10 @@ public class WarEnemyBase : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
+    }
+
+    void PassiveIncome()
+    {
+        gold += 10;
     }
 }
